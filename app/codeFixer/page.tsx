@@ -41,63 +41,72 @@ export default function CodeFixer() {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="p-3">
-        <p className="text-xl text-green-500">AI Code Fixer</p>
-        <div className="grid grid-cols-2">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col gap-4 pt-2">
-              <p>Paste your code here</p>
-              {/* <SyntaxHighlighter language="javascript" style={atelierDuneDark}>
+    <div className="relative h-full bg-[url('/background.png')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative z-10 text-white">
+        <div>
+          <Header />
+          <div className="p-3">
+            <p className="text-xl text-green-500">AI Code Fixer</p>
+            <div className="grid grid-cols-2">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex flex-col gap-4 pt-2">
+                  <p>Paste your code here</p>
+                  {/* <SyntaxHighlighter language="javascript" style={atelierDuneDark}>
             {codeString}
           </SyntaxHighlighter> */}
-              <textarea
-                {...register('code')}
-                className="w-[40vw] h-100 border-2 border-green-500 rounded-md"
-              />
-              <p>Enter your error here</p>
-              <input
-                type="text"
-                {...register('error')}
-                className="w-full border-2 rounded-md border-green-500"
-              />
-              <div className="flex flex-row gap-4">
-                <button
-                  className="p-3 w-50 bg-green-500 rounded-md text-white cursor-pointer"
-                  type="submit"
-                  name="action"
-                  value="fix"
-                >
-                  Fix error
-                </button>
-                <button
-                  className="p-3 w-50 bg-green-500 rounded-md text-white cursor-pointer"
-                  type="submit"
-                  name="action"
-                  value="improve"
-                >
-                  Improve Code
-                </button>
+                  <textarea
+                    {...register('code')}
+                    className="w-[40vw] h-100 border-2 border-green-500 rounded-md bg-white text-black"
+                  />
+                  <p>Enter your error here</p>
+                  <input
+                    type="text"
+                    {...register('error')}
+                    className="w-full border-2 rounded-md border-green-500 bg-white text-black"
+                  />
+                  <div className="flex flex-row gap-4">
+                    <button
+                      className="p-3 w-50 bg-green-500 rounded-md text-white cursor-pointer"
+                      type="submit"
+                      name="action"
+                      value="fix"
+                    >
+                      Fix error
+                    </button>
+                    <button
+                      className="p-3 w-50 bg-green-500 rounded-md text-white cursor-pointer"
+                      type="submit"
+                      name="action"
+                      value="improve"
+                    >
+                      Improve Code
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div className="flex flex-col gap-4">
+                <p className="text-xl text-green-500">AI Output</p>
+
+                {/* <div className="border-2 border-green-500 h-full w-full rounded-md p-2"> */}
+                {!showSpinner && (
+                  <SyntaxHighlighter
+                    language="javascript"
+                    style={atelierDuneDark}
+                  >
+                    {aiCodeFix}
+                  </SyntaxHighlighter>
+                )}
+                {showSpinner && (
+                  <div className="inset-0 flex items-center justify-center bg-white/70">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-green-500" />
+                  </div>
+                )}
+                {/* </div> */}
               </div>
             </div>
-          </form>
-
-          <div className="flex flex-col gap-4">
-            <p className="text-xl text-green-500">AI Output</p>
-
-            {/* <div className="border-2 border-green-500 h-full w-full rounded-md p-2"> */}
-            {!showSpinner && (
-              <SyntaxHighlighter language="javascript" style={atelierDuneDark}>
-                {aiCodeFix}
-              </SyntaxHighlighter>
-            )}
-            {showSpinner && (
-              <div className="inset-0 flex items-center justify-center bg-white/70">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-green-500" />
-              </div>
-            )}
-            {/* </div> */}
           </div>
         </div>
       </div>

@@ -46,55 +46,63 @@ export default function Chatbot() {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="flex justify-center items-center gap-6 flex-col pt-4">
-        <div className="w-100 flex flex-col">
-          <div className="w-full h-8 bg-green-500 border-1 border-green-500">
-            <p className="text-white text-center">AI Chatbot</p>
-          </div>
-          <div className="w-full h-100 border-1 border-green-500 bg-grey-500 p-2 overflow-y-auto">
-            {userPrompt?.map((text, index) => (
-              <div className="flex flex-col gap-4 pb-2" key={index}>
-                <div className="w-80 border-1 border-gray-200 bg-gray-200 rounded-md p-1">
-                  <p>{text?.q}</p>
-                </div>
-                {aiText[index] && (
-                  <div className="flex justify-end w-full">
-                    <div className="w-80 border-1 border-green-500 bg-green-500 rounded-md p-1">
-                      <p className="text-white">{aiText[index]}</p>
+    <div className="relative h-screen bg-[url('/background.png')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative z-10">
+        <div>
+          <Header />
+          <div className="flex justify-center items-center gap-6 flex-col pt-4">
+            <div className="w-100 flex flex-col">
+              <div className="w-full h-8 bg-green-500 border-1 border-green-500">
+                <p className="text-white text-center">AI Chatbot</p>
+              </div>
+              <div className="w-full h-100 border-1 border-green-500 bg-white p-2 overflow-y-auto">
+                {userPrompt?.map((text, index) => (
+                  <div className="flex flex-col gap-4 pb-2" key={index}>
+                    <div className="w-80 border-1 border-gray-200 bg-gray-200 rounded-md p-1">
+                      <p>{text?.q}</p>
                     </div>
+                    {aiText[index] && (
+                      <div className="flex justify-end w-full">
+                        <div className="w-80 border-1 border-green-500 bg-green-500 rounded-md p-1">
+                          <p className="text-white">{aiText[index]}</p>
+                        </div>
+                      </div>
+                    )}
+                    {!aiText[index] && (
+                      <div className="inset-0 flex items-center justify-center bg-white/70">
+                        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-green-500" />
+                      </div>
+                    )}
                   </div>
-                )}
-                {!aiText[index] && (
-                  <div className="inset-0 flex items-center justify-center bg-white/70">
-                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-green-500" />
+                ))}
+              </div>
+              <div className="w-full">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="flex">
+                    <input
+                      type="text"
+                      {...register('prompt', {
+                        required: 'Prompt is required',
+                      })}
+                      className="border-1 border-green-500 w-full h-20 bg-white"
+                    ></input>
+                    {errors.prompt && (
+                      <p className="text-red-500 text-sm">
+                        {errors.prompt.message}
+                      </p>
+                    )}
+                    <button
+                      type="submit"
+                      className="h-20 text-white bg-green-500 cursor-pointer"
+                    >
+                      Generate text
+                    </button>
                   </div>
-                )}
+                </form>
               </div>
-            ))}
-          </div>
-          <div className="w-full">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex">
-                <input
-                  type="text"
-                  {...register('prompt', { required: 'Prompt is required' })}
-                  className="border-1 border-green-500 w-full h-20"
-                ></input>
-                {errors.prompt && (
-                  <p className="text-red-500 text-sm">
-                    {errors.prompt.message}
-                  </p>
-                )}
-                <button
-                  type="submit"
-                  className="h-20 text-white bg-green-500 cursor-pointer"
-                >
-                  Generate text
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
