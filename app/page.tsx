@@ -28,9 +28,11 @@ export default function Home() {
               AI Grammar Check
             </button>
           </Link>
-          <button className="p-5 rounded-md text-white bg-green-500 cursor-pointer">
-            AI Code Explainer
-          </button>
+          <Link href="/codeFixer">
+            <button className="w-full p-5 rounded-md text-white bg-green-500 cursor-pointer">
+              AI Code Explainer
+            </button>
+          </Link>
         </div>
       </div>
     </div>
