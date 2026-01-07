@@ -1,3 +1,28 @@
+# AI-Toolkit-GPT
+
+A **Next.js application** featuring multiple AI-powered tools built using the **OpenAI GPT API**.
+
+This app includes AI features like:
+- 🚀 Chatbot
+- ✍️ Text summarizer
+- 📧 Email writer
+- 📚 Grammar Check
+- Code Fixer
+
+Built with **TypeScript**, **React Hook Form**, and the **OpenAI Responses API**.
+
+---
+
+## 🧠 Features
+
+- **Interactive AI Chat** — Talk with GPT-powered conversational models
+- **Summarizer** — Compress long text into concise summaries
+- **Email Writer** — Generate professional emails based on prompts
+- **Modular design** — Easily add more AI tools
+- **Streaming API responses** — Real-time token streaming (where supported)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
