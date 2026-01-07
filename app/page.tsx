@@ -20,9 +20,12 @@ export default function Home() {
               AI Summarizer
             </button>
           </Link>
-          <button className="p-5 rounded-md text-white bg-green-500 cursor-pointer">
-            AI Email Help
-          </button>
+          <Link href="/emailHelp">
+            <button className="w-full p-5 rounded-md text-white bg-green-500 cursor-pointer">
+              AI Email Help
+            </button>
+          </Link>
+
           <Link href="/grammarCheck">
             <button className="w-full p-5 rounded-md text-white bg-green-500 cursor-pointer">
               AI Grammar Check
