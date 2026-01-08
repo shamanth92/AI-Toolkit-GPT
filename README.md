@@ -23,6 +23,25 @@ Built with **TypeScript**, **React Hook Form**, and the **OpenAI Responses API**
 
 ---
 
+---
+Link to access the application - https://ai-toolkit-gpt.vercel.app/
+---
+
+---
+## Screenshots of the app
+
+<img width="1902" height="853" alt="image" src="https://github.com/user-attachments/assets/d989090b-57d0-42ec-8fd8-18dca07f79c2" />
+
+<img width="526" height="646" alt="image" src="https://github.com/user-attachments/assets/055460e4-9d96-4cd0-84e7-02710aeda7b5" />
+
+<img width="1913" height="592" alt="image" src="https://github.com/user-attachments/assets/a598dffb-88ad-495c-bfb8-9c0812a632be" />
+
+<img width="1910" height="602" alt="image" src="https://github.com/user-attachments/assets/5df20724-fafc-466b-8169-26e78ad79e9e" />
+
+<img width="1910" height="594" alt="image" src="https://github.com/user-attachments/assets/deb2e624-9b9e-44ae-afff-04b1064882e0" />
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
