@@ -11,9 +11,12 @@ export async function POST(request: any): Promise<Response> {
   const SYSTEM_MESSAGE = {
     role: 'system',
     content: `You are a text reviewer. You review large amounts of text and provide concise, short summaries of these texts. Do not include reasoning or analysis. Provide highlights, key points and provide bullet points wherever necessary. The summary should have a ${userTone} tone. The length of the summary should be around ${userSummaryLength}`,
-  };
+  } as const;
 
-  const messages = [SYSTEM_MESSAGE, { role: 'user', content: userPrompt }];
+  const messages = [
+    SYSTEM_MESSAGE,
+    { role: 'user', content: userPrompt } as const,
+  ];
 
   const encoder = new TextEncoder();
 

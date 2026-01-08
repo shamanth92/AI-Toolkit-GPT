@@ -11,12 +11,12 @@ export async function POST(request: any): Promise<Response> {
   const SYSTEM_MESSAGE_IMPROVE = {
     role: 'system',
     content: `You are a Typescript/Javascript code expert and you help review code and improve them and help refactor them. Provide the improved code first and then explain the improvements made.`,
-  };
+  } as const;
 
   const SYSTEM_MESSAGE_FIX = {
     role: 'system',
     content: `You are a Typescript/Javascript code expert and you help review code and help fix errors. Provide the fixed code first and then explain what the issue was and what the fix is.`,
-  };
+  } as const;
 
   const messages = [
     action === 'improve' ? SYSTEM_MESSAGE_IMPROVE : SYSTEM_MESSAGE_FIX,
@@ -26,7 +26,7 @@ export async function POST(request: any): Promise<Response> {
         action === 'improve'
           ? code
           : `Fix this error: ${error} in this code: ${code}`,
-    },
+    } as const,
   ];
 
   const encoder = new TextEncoder();

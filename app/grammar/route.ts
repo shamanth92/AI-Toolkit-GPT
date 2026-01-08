@@ -8,9 +8,12 @@ export async function POST(request: any): Promise<Response> {
   const SYSTEM_MESSAGE = {
     role: 'system',
     content: `Your main job is to review a text and make sure has correct grammar. Provide the correct grammar version for the user provided text. Dont change the tone of text or any other parts of text. Just return the correct grammar version of the text. First return the corrected text and then provide what changes were made, highlight the mistakes and corrections. Do not use reasoning`,
-  };
+  } as const;
 
-  const messages = [SYSTEM_MESSAGE, { role: 'user', content: userText }];
+  const messages = [
+    SYSTEM_MESSAGE,
+    { role: 'user', content: userText } as const,
+  ];
 
   const encoder = new TextEncoder();
 

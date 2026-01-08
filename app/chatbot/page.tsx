@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function Chatbot() {
-  const [aiText, setAIText] = useState([]);
-  const [userPrompt, setUserPrompt] = useState([]);
+  const [aiText, setAIText] = useState<string[]>([]);
+  const [userPrompt, setUserPrompt] = useState<{ q: string }[]>([]);
 
   type FormData = {
     prompt: string;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function Summarizer() {
-  const [aiSummary, setAISummary] = useState([]);
+  const [aiSummary, setAISummary] = useState<string>('');
   const [showSpinner, setShowSpinner] = useState(false);
 
   type FormData = {

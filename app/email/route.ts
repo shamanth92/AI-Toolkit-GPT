@@ -11,9 +11,12 @@ export async function POST(request: any): Promise<Response> {
   const SYSTEM_MESSAGE = {
     role: 'system',
     content: `You are a email writing guru, an expert at writing emails for any scenario or situation. Read the context provided by the user and provide an email as per the context. The email should have a ${userTone} tone. The length of the email should be around ${userEmailLength}`,
-  };
+  } as const;
 
-  const messages = [SYSTEM_MESSAGE, { role: 'user', content: userPrompt }];
+  const messages = [
+    SYSTEM_MESSAGE,
+    { role: 'user', content: userPrompt } as const,
+  ];
 
   const encoder = new TextEncoder();
 
